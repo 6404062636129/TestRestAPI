@@ -1,0 +1,23 @@
+<div id="content"></div>
+
+<input type="checkbox" name="interests" value="หนังสือ"> หนังสือ <br>
+<input type="checkbox" name="interests" value="กีฬา"> กีฬา <br>
+<input type="checkbox" name="interests" value="เกมส์"> เกมส์ <br>
+
+<button onclick="submitInterest()">ยืนยันความสนใจ</button>
+...
+
+<script>
+function submitInterest () {
+    let interestInputs = document.querySelectorAll('input[name=interests]:checked')
+    let contentDiv = document.getElementById('content')
+    let htmlData = '<ul>'
+        for (let i = 0; i < interestInputs.length; i++) {
+        if (interestInputs[i].value) {
+           htmlData += `<li>${interestInputs[i].value}</li>`
+        }
+    }
+    htmlData += '</ul>'
+    contentDiv.innerHTML = htmlData
+}
+</script>
